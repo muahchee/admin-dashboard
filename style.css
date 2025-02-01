@@ -62,8 +62,72 @@ a{
 }
 
 /* main css */
+body{
+  height: 90vh;
+}
 
 .icon{
   width: 1.1rem;
   margin-bottom: -3px;
+}
+
+.full-wrap{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas: 
+    "sidebar header"
+    "sidebar main";
+
+  height: 100%;
+}
+
+/* .header .sidebar .main */
+.full-wrap > *{
+  display: grid;
+}
+
+.sidebar{
+  grid-area: sidebar;
+}
+
+.header{
+  grid-area: header;
+
+  grid-template-columns: minmax(50px, 1fr) minmax(100px, 2px);
+  grid-template-rows: minmax(50px, 1fr) minmax(50px, 1fr);
+  grid-template-areas: 
+    "first-row first-row"
+    "second-row second-row";
+}
+
+/* .first-row .second-row */
+.header > *{
+  display: grid;
+}
+
+.first-row{
+  grid-area: first-row;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.first-row > form{
+  grid-area: 1 / 1 / 1 / span 2;
+}
+
+.first-row > div{
+  grid-area: 1 / 3 / 1 / span 1;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.second-row{
+  grid-area: second-row;
+}
+
+.main{
+  grid-area: main;
 }
