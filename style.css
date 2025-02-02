@@ -67,15 +67,15 @@ a{
   --mid: rgb(233, 175, 235);
   --accent1: rgb(28, 75, 102);
   --accent2: rgb(194, 0, 178);
+  --shadow: rgba(28, 75, 102, 0.363);
   
   --text-dark: #2c1717;
+  --text-darker: #462525;
   --text-light: #fffaf0;
-
+  --text-lighter: #dbd4c5;
 }
 
 body{
-  height: 1000px;
-
   color: var(--text-dark);
 
   font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;;
@@ -99,7 +99,7 @@ body{
   
   display: grid;
   grid-template-columns: 0.8fr 4fr;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 200px 1fr;
   grid-template-areas: 
     "sidebar header"
     "sidebar main";
@@ -143,9 +143,15 @@ body{
   margin-bottom: 15px;
 }
 
+.sidebar li:hover,
+.sidebar li:focus{
+  margin-left: -3px;
+  cursor: pointer;
+}
+
 .sidebar h1{
   font-size: 2rem;
-
+  color: var(--text-light);
 }
 
 .sidebar .dashboard-icon{
@@ -158,18 +164,17 @@ body{
   grid-area: header;
 
   grid-template-columns: minmax(50px, 1fr) minmax(100px, 2px);
-  grid-template-rows: 70px 110px;
+  grid-template-rows: 70px 130px;
   grid-template-areas: 
     "first-row first-row"
     "second-row second-row";
+
+  background-color: var(--light);
+  padding: 10px 15px 10px 80px;
+  box-shadow: 0 10px 10px var(--shadow);
 }
 
 /* .first-row .second-row */
-.header{
-  background-color: var(--light);
-  padding: 10px 30px;
-}
-
 .header > *{
   display: grid;
   align-items: center;
@@ -196,6 +201,7 @@ body{
   border: none;
   background-color: var(--mid);
   padding: 10px 20px;
+  box-shadow: inset 0px 4px 10px var(--shadow);
 }
 
 .first-row > div{
@@ -214,6 +220,12 @@ body{
   grid-column: 3 / span 2;
   justify-self: end;
   font-size: 1.1rem;
+}
+
+.first-row > *:hover,
+.first-row > *:focus{
+  cursor: pointer;
+
 }
 
 .second-row{
@@ -257,6 +269,12 @@ body{
   font-weight: bold;
 }
 
+.buttons button:hover,
+.buttons button:focus{
+  cursor: pointer;
+  transform: translate(0, -3px);
+}
+
 
 .main{
   grid-area: main;
@@ -270,6 +288,8 @@ body{
   align-items: start;
 
   background-color: var(--mid);
+  box-shadow: inset 0 10px 8px var(--shadow);
+  padding: 30px;
 }
 
 .main > *{
@@ -303,12 +323,19 @@ hr{
   border-radius: 10px;
   border-left: 8px solid var(--accent2);
   position: relative;
+  box-shadow: 6px 6px 10px var(--shadow);
 }
 
 .project-icons{
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+.project-icons img:hover,
+.project-icons img:focus{
+  cursor: pointer;
+  transform: translate(0, -3px);
 }
 
 .project-icons img{
@@ -327,11 +354,11 @@ hr{
   background-color: var(--light);
   padding: 10px;
   border-radius: 10px;
+  box-shadow: 6px 6px 10px var(--shadow);
 }
 
 .announcement-item{
   padding: 10px;
-  /* border-bottom: 1px solid var(--text-dark); */
 }
 
 .trending{
@@ -344,6 +371,7 @@ hr{
   background-color: var(--light);
   padding: 10px;
   border-radius: 10px;
+  box-shadow: 6px 6px 10px var(--shadow);
 }
 
 .trending-item{
