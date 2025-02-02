@@ -82,13 +82,15 @@ body{
 }
 
 .icon{
-  width: 20px;
+  width: 25px;
+  min-width: 25px;
   margin-bottom: -3px;
 }
 
 .profile-pic{
   border-radius: 100%;
   width: 40px;
+  min-width: 40px;
 }
 
 .full-wrap{
@@ -134,7 +136,7 @@ body{
 
 
 .sidebar .icon{
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .sidebar li{
@@ -149,13 +151,14 @@ body{
 .sidebar .dashboard-icon{
   margin: 0 10px -15px 0;
   width: 50px;
+  min-width: 50px;
 }
 
 .header{
   grid-area: header;
 
   grid-template-columns: minmax(50px, 1fr) minmax(100px, 2px);
-  grid-template-rows: minmax(50px, 1fr) minmax(50px, 1fr);
+  grid-template-rows: 70px 110px;
   grid-template-areas: 
     "first-row first-row"
     "second-row second-row";
@@ -172,9 +175,6 @@ body{
   align-items: center;
 }
 
-.header .icon{
-  fill: var(--accent2);
-}
 
 .first-row{
   grid-area: first-row;
@@ -202,51 +202,48 @@ body{
   grid-area: 1 / 3 / 1 / span 1;
 
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-self: end;
-  justify-items: center;
-  align-items: center;
+  place-items: center;
   gap: 15px;
 
   padding-right: 30px;
 }
 
 .first-row > div > .username{
-  grid-column: 3 / span 3;
+  grid-column: 3 / span 2;
+  justify-self: end;
+  font-size: 1.1rem;
 }
 
 .second-row{
   grid-area: second-row;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
 }
 
 .second-row .user{
   display: grid;
-  grid-template-columns: repeat(8, 1fr) ;
+  grid-template-columns: 0.5fr 7fr;
+  gap: 10px;
   align-items: center;
 }
 
 .second-row .profile-pic{
   width: 70px;
-}
-
-.second-row .user div{
-  grid-column: 2 / span 5;
-  
+  min-width: 70px;
+  justify-self: cen;
 }
 
 .second-row .username{
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .second-row .buttons{
-  justify-self: end;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-
+  display: flex;
+  justify-content: end;
+  gap: 10px 30px;
+  flex-wrap: wrap;
   padding-right: 30px;
 }
 
@@ -254,7 +251,7 @@ body{
   background-color: var(--accent1);
   color: var(--text-light);
 
-  padding: 8px 25px;
+  padding: 10px 40px;
   border-radius: 20px;
   border: none;
   font-weight: bold;
@@ -302,9 +299,21 @@ hr{
 
 .project-item{
   background-color: var(--light);
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   border-left: 8px solid var(--accent2);
+  position: relative;
+}
+
+.project-icons{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.project-icons img{
+  width: 35px;
+  margin-right: 15px;
 }
 
 
@@ -331,8 +340,15 @@ hr{
   align-self: start;
 }
 
- .trending > div{
+.trending > div{
   background-color: var(--light);
   padding: 10px;
   border-radius: 10px;
+}
+
+.trending-item{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  padding: 15px;
 }
