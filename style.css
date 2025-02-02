@@ -65,11 +65,11 @@ a{
 *{
   --light: rgb(201, 245, 248);
   --mid: rgb(233, 175, 235);
-  --accent1: rgb(0, 162, 255);
-  --accent2: rgb(100, 67, 6);
+  --accent1: rgb(28, 75, 102);
+  --accent2: rgb(194, 0, 178);
   
-  --text-dark: rgb(44, 23, 23);
-  --text-light: rgb(255, 250, 240);
+  --text-dark: #2c1717;
+  --text-light: #fffaf0;
 
 }
 
@@ -96,7 +96,7 @@ body{
   max-height: 100%;
   
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 0.8fr 4fr;
   grid-template-rows: 1fr 3fr;
   grid-template-areas: 
     "sidebar header"
@@ -111,8 +111,34 @@ body{
 
 .sidebar{
   grid-area: sidebar;
+
+  grid-template-columns: minmax(200px, 1fr);
+  grid-template-rows: 90px 280px 150px;
+  align-items: start;
+  gap: 30px;
+
   background-color: var(--accent1);
   color: var(--text-light);
+  padding: 40px;
+  font-size: 1.2rem;
+}
+
+.sidebar .icon{
+  margin-right: 10px;
+}
+
+.sidebar li{
+  margin-bottom: 10px;
+}
+
+.sidebar h1{
+  font-size: 2rem;
+
+}
+
+.sidebar .dashboard-icon{
+  margin: 0 10px -15px 0;
+  width: 50px;
 }
 
 .header{
@@ -159,6 +185,7 @@ body{
   border-radius: 30px;
   border: none;
   background-color: var(--mid);
+  padding: 10px 20px;
 }
 
 .first-row > div{
@@ -229,25 +256,37 @@ body{
 
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
   grid-template-areas: 
     "project announcements"
     "project trending";
+  align-items: start;
 
   background-color: var(--mid);
 }
 
+.main > *{
+  padding: 20px;
+}
+
+h2{
+  margin-bottom: 10px;
+}
+
+hr{
+  margin: 10px 0;
+}
 
 .projects{
   grid-area: project;
-  padding: 20px;
 }
 
 .projects .project-grid{
   display: grid;
   
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-template-rows: repeat(3, 250px);
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-auto-rows: 250px;
   gap: 30px;
 }
 
@@ -255,14 +294,35 @@ body{
   background-color: var(--light);
   padding: 10px;
   border-radius: 10px;
-  border-left: 5px solid var(--accent2);
+  border-left: 8px solid var(--accent2);
 }
 
 
 .announcements{
   grid-area: announcements;
+
+  align-self: start;
+}
+
+.announcements > div{
+  background-color: var(--light);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.announcement-item{
+  padding: 10px;
+  /* border-bottom: 1px solid var(--text-dark); */
 }
 
 .trending{
   grid-area: trending;
+
+  align-self: start;
+}
+
+ .trending > div{
+  background-color: var(--light);
+  padding: 10px;
+  border-radius: 10px;
 }
